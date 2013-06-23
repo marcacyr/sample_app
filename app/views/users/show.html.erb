@@ -1,3 +1,4 @@
+<% if signed_in? %>
 <% provide(:title, @user.name) %>
 <div class="row">
 	<aside class="span4">
@@ -7,6 +8,9 @@
 				<%= @user.name %>
 			</h1>
 		</section>
+    <section>
+        <%= render 'shared/micropost_form' %>
+    </section>
 	</aside>
 	<div class="span8">
 		<% if @user.microposts.any? %>
@@ -18,3 +22,5 @@
 		<% end %>
 	</div>
 </div>
+<% else %>
+<% end %>
