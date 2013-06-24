@@ -57,13 +57,13 @@ describe "User pages" do
 
   	before { visit user_path(user) }
 
-  	it { should have_selector('h1', 	 text: user.name) }
-  	it { should have_selector('title', text: user.name) }
+  	it { should_not have_selector('h1', 	 text: user.name) }
+  	it { should_not have_selector('title', text: user.name) }
 
     describe "microposts" do
-      it { should have_content(m1.content) }
-      it { should have_content(m2.content) }
-      it { should have_content(user.microposts.count) }
+      it { should_not have_content(m1.content) }
+      it { should_not have_content(m2.content) }
+      it { should_not have_content(user.microposts.count) }
     end
   end
 
